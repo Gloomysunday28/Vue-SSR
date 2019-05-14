@@ -1,8 +1,7 @@
 <template>
-  <div>
-    SSR服务端渲染
-    <!-- <img :src="require('../1.JPG')"/>  -->
-    <router-link to="/home">Home</router-link>
+  <div id="app">
+    App
+    <router-link to="/">Home</router-link>
     <router-link to="/foo">Foo</router-link>
     <router-view></router-view>
   </div>
@@ -14,8 +13,6 @@ export default {
 }
 </script>
 
-<style scoped>
-  div {
-    color: red;
-  }
+<style>
+
 </style>
