@@ -29,7 +29,7 @@
       (1). target: 'node' 环境就是node, 所以不需要把Node.js的原生模块打包进去
       (2). libraryTarget: 'commonjs2' 因为是Node, 所以导出的数据是CommonJS
       (3). externals: [nodeExternals()] 第三方依赖包不需要再服务器端上安装
-      (4). css loader使用ignore-loader: 服务端不需要加载css文件
+      (4). css loader需要使用vue-style-loader, 其具备一些服务端渲染的特殊功能
     2.webpack入口文件
       和浏览器渲染不同, SSR需要的是HTML字符串, 所以导出的渲染格式应该是字符串而不是DOM
     3.通过express开启路由配置(通配符), 将打包后的SSR配置执行,放入到response里的HTML字符串里(HTML字符串会引用浏览器打包后的js), 最后浏览器访问路由的时候会获取到对应模板, 通过输入的URL,添加到Vue-router里, 获取到相对应的组件, 并呈现在页面中
