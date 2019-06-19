@@ -3,6 +3,7 @@ const merge = require('webpack-merge')
 const base = require('./webpack.base.conf')
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
 const nodeExternals = require('webpack-node-externals')
+const WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 
 module.exports = merge(base, {
@@ -16,6 +17,7 @@ module.exports = merge(base, {
   }),
   target: 'node',
   plugins: [
-    new VueSSRServerPlugin() // 用来告诉服务端资源预加载以及首屏所需要的chunk
+    new VueSSRServerPlugin(), // 用来告诉服务端资源预加载以及首屏所需要的chunk
+    new WebpackBundleAnalyzer()
   ]
 })
